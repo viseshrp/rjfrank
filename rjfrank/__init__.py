@@ -101,4 +101,8 @@ class RandyFrankModule(ModuleType):
     def __del__(self) -> None:
         print("Randy has exited the runtime. Legacy remains in memory.")
 
+    def __dir__(self) -> list[str]:
+        dynamic_attrs = list(vars(self._randy).keys()) + list(_EASTER_EGGS.keys())
+        return sorted(dynamic_attrs)
+
 sys.modules[__name__] = RandyFrankModule(__name__)
