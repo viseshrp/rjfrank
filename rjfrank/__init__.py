@@ -1,15 +1,39 @@
 from types import ModuleType
 from dataclasses import dataclass
 import sys
+import random
 from typing import Optional
+
+_MOVIE_QUOTES = [
+    "May the Force be with you.",
+    "I'm gonna make him an offer he can't refuse.",
+    "You talking to me?",
+    "I'll be back.",
+    "Here's looking at you, kid.",
+    "Why so serious?",
+    "Life finds a way.",
+    "Houston, we have a problem."
+]
+
+_RETIRE_MESSAGES = [
+    "Logging off with flair...",
+    "Sunset over the debugging horizon...",
+    "The module has left the building.",
+    "Code complete. Randy rides into the sunset.",
+    "System shutting down. Randy's legacy remains."
+]
+
+_EASTER_EGGS = {
+    "everyone_knows_that": "Of course everyone knows that! 😉",
+    "but_more_importantly": "The most important thing is to have fun. 🎉",
+    "mr_trashcan": "Taking out the bugs like trash! 🗑️",
+}
 
 @dataclass
 class RandyFrankData:
-    # Static attributes (most are None or placeholders)
     principal_architect: Optional[str] = None
     python_object_api: Optional[str] = None
     Nexus: Optional[str] = None
-    movie_quotes: Optional[str] = None
     volume_rendering_transp_surf: Optional[str] = None
     parallel_compositor: Optional[str] = None
     terascale_browser: Optional[str] = None
@@ -53,13 +77,14 @@ class RandyFrankData:
     Marys_treats: Optional[str] = None
     rectite: Optional[str] = None
 
-    # Methods
-
     def catan_negotiations(self) -> str:
         return "You may *think* you’re getting those sheep, but you’re not."
 
+    def movie_quotes(self) -> str:
+        return random.choice(_MOVIE_QUOTES)
+
     def retire(self) -> str:
-        return "Logging off with flair..."
+        return random.choice(_RETIRE_MESSAGES)
 
 class RandyFrankModule(ModuleType):
     def __init__(self, name: str) -> None:
@@ -67,6 +92,8 @@ class RandyFrankModule(ModuleType):
         self._randy = RandyFrankData()
 
     def __getattr__(self, name: str):
+        if name in _EASTER_EGGS:
+            return _EASTER_EGGS[name]
         if hasattr(self._randy, name):
             return getattr(self._randy, name)
         raise AttributeError(f"module 'rjfrank' has no attribute '{name}'")
@@ -74,5 +101,4 @@ class RandyFrankModule(ModuleType):
     def __del__(self) -> None:
         print("Randy has exited the runtime. Legacy remains in memory.")
 
-# Replace current module with custom module instance
 sys.modules[__name__] = RandyFrankModule(__name__)
