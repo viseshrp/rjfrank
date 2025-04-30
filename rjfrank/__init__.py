@@ -12,7 +12,8 @@ _MOVIE_QUOTES = [
     "Here's looking at you, kid.",
     "Why so serious?",
     "Life finds a way.",
-    "Houston, we have a problem."
+    "Houston, we have a problem.",
+    "The Dude abides."
 ]
 
 _RETIRE_MESSAGES = [
@@ -26,7 +27,7 @@ _RETIRE_MESSAGES = [
 _EASTER_EGGS = {
     "everyone_knows_that": "Of course everyone knows that! 😉",
     "but_more_importantly": "The most important thing is to have fun. 🎉",
-    "mr_trashcan": "Taking out the bugs like trash! 🗑️",
+    "mr_trashcan": "Where the truth goes on vacation... 🗑️",
 }
 
 @dataclass
@@ -40,7 +41,7 @@ class RandyFrankData:
     spacefilling_Z_curve: Optional[str] = None
     chromium_rendering: Optional[str] = None
     two_birds_one_stone: Optional[str] = None
-    big_pineapple_in_Japanese: Optional[str] = None
+    big_pineapple_in_Chinese: Optional[str] = None
     Stanbury: Optional[str] = None
     dancing_Jay: Optional[str] = None
     banged_it_out_over_the_weekend: Optional[str] = None
@@ -75,6 +76,7 @@ class RandyFrankData:
     death_is_a_four_letter_word: Optional[str] = None
     apple_ii_copyright_protection: Optional[str] = None
     Marys_treats: Optional[str] = None
+    its_been_500_years: Optional[str] = None
     rectite: Optional[str] = None
 
     def catan_negotiations(self) -> str:
@@ -85,6 +87,7 @@ class RandyFrankData:
 
     def retire(self) -> str:
         return random.choice(_RETIRE_MESSAGES)
+
 
 class RandyFrankModule(ModuleType):
     def __init__(self, name: str) -> None:
@@ -104,5 +107,6 @@ class RandyFrankModule(ModuleType):
     def __dir__(self) -> list[str]:
         dynamic_attrs = list(vars(self._randy).keys()) + list(_EASTER_EGGS.keys())
         return sorted(dynamic_attrs)
+
 
 sys.modules[__name__] = RandyFrankModule(__name__)
