@@ -12,7 +12,7 @@ _MOVIE_QUOTES = [
     "Here's looking at you, kid.",
     "Why so serious?",
     "Life finds a way.",
-    "Houston, we have a problem."
+    "Houston, we have a problem.",
 ]
 
 _RETIRE_MESSAGES = [
@@ -20,7 +20,7 @@ _RETIRE_MESSAGES = [
     "Sunset over the debugging horizon...",
     "The module has left the building.",
     "Code complete. Randy rides into the sunset.",
-    "System shutting down. Randy's legacy remains."
+    "System shutting down. Randy's legacy remains.",
 ]
 
 _EASTER_EGGS = {
@@ -28,6 +28,7 @@ _EASTER_EGGS = {
     "but_more_importantly": "The most important thing is to have fun. 🎉",
     "mr_trashcan": "Taking out the bugs like trash! 🗑️",
 }
+
 
 @dataclass
 class RandyFrankData:
@@ -86,6 +87,44 @@ class RandyFrankData:
     def retire(self) -> str:
         return random.choice(_RETIRE_MESSAGES)
 
+    def ode(self) -> None:
+        print(
+            """
+    ODE TO A DATA WHIZ IN BLUE
+
+    There once was a guy with a brilliant blue ’hawk,
+    Whose fluid dynamics made all of us talk.
+    With degrees in biomed and a conundrum or two,
+    He’d solve them by noon, and still have things to do!
+
+    His tattoos are hidden, his age is unknown,
+    But those of us close? We’re fully shown.
+    Sushi the cat, spoiled to the core,
+    Rules the roost, while he rules the engineering floor.
+
+    He came back after leaving—oh, what a tease!
+    Our fearless leader still called him Frank, with ease.
+    With RC cars zooming and Minecraft galore,
+    His chicken dinners? The stuff of lore.
+
+    His wife, sweet Mary, with cookies each week,
+    Is everyone’s favorite—her skills quite unique.
+    But this blue-haired wonder? A Renaissance man,
+    Board games, tattoos—he’s got a grand plan.
+
+    Now retirement calls, it’s his time to soar,
+    With games, RVs, and, of course, so much more.
+    We’ll miss the conundrums, the science, the flair,
+    But mostly we’ll miss that bright, blue hair!
+
+    He and Dave quote movies we’ve never seen,
+    From films so obscure, we ask, “What do they mean?”
+    But as he retires, there’s one thing we know—
+    We’re all anticipating Randy 3.0!
+    """
+        )
+
+
 class RandyFrankModule(ModuleType):
     def __init__(self, name: str) -> None:
         super().__init__(name)
@@ -102,7 +141,8 @@ class RandyFrankModule(ModuleType):
         print("Randy has exited the runtime. Legacy remains in memory.")
 
     def __dir__(self) -> list[str]:
-        dynamic_attrs = list(vars(self._randy).keys()) + list(_EASTER_EGGS.keys())
+        dynamic_attrs = list(vars(self._randy).keys())
         return sorted(dynamic_attrs)
+
 
 sys.modules[__name__] = RandyFrankModule(__name__)
