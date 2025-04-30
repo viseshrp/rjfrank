@@ -13,6 +13,7 @@ _MOVIE_QUOTES = [
     "Why so serious?",
     "Life finds a way.",
     "Houston, we have a problem.",
+    "The Dude abides."
 ]
 
 _RETIRE_MESSAGES = [
@@ -26,7 +27,7 @@ _RETIRE_MESSAGES = [
 _EASTER_EGGS = {
     "everyone_knows_that": "Of course everyone knows that! 😉",
     "but_more_importantly": "The most important thing is to have fun. 🎉",
-    "mr_trashcan": "Taking out the bugs like trash! 🗑️",
+    "mr_trashcan": "Where the truth goes on vacation... 🗑️",
 }
 
 
@@ -41,7 +42,7 @@ class RandyFrankData:
     spacefilling_Z_curve: Optional[str] = None
     chromium_rendering: Optional[str] = None
     two_birds_one_stone: Optional[str] = None
-    big_pineapple_in_Japanese: Optional[str] = None
+    big_pineapple_in_Chinese: Optional[str] = None
     Stanbury: Optional[str] = None
     dancing_Jay: Optional[str] = None
     banged_it_out_over_the_weekend: Optional[str] = None
@@ -74,8 +75,9 @@ class RandyFrankData:
     terrain_engine: Optional[str] = None
     mohawk_conversation_magnet: Optional[str] = None
     death_is_a_four_letter_word: Optional[str] = None
-    apple_ii_copyright_protection: Optional[str] = None
+    apple_ii_copy_protection: Optional[str] = None
     Marys_treats: Optional[str] = None
+    its_been_500_years: Optional[str] = None
     rectite: Optional[str] = None
     five_minute_task: Optional[str] = None
     rc_cars: Optional[str] = None
@@ -129,7 +131,6 @@ class RandyFrankData:
     """
         )
 
-
 class RandyFrankModule(ModuleType):
     def __init__(self, name: str) -> None:
         super().__init__(name)
@@ -153,6 +154,7 @@ class RandyFrankModule(ModuleType):
             if callable(getattr(self._randy, name)) and not name.startswith("_")
         ]
         return sorted(set(attrs + methods))
+
 
 
 sys.modules[__name__] = RandyFrankModule(__name__)
