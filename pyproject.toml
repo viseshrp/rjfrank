@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "rjfrank"
-version = "1.0.1"
+version = "1.0.2"
 description = "An honorary Python module celebrating Randy Frank."
 readme = "README.md"
 requires-python = ">=3.8"

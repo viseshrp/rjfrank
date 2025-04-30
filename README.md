@@ -14,14 +14,14 @@ pip install rjfrank
 
 ## Usage
 
-```python
-import rjfrank
-
-print(rjfrank.catan_negotiations())
-print(rjfrank.movie_quotes())
-print(rjfrank.retire())
-
-del rjfrank
+```bash
+>> import rjfrank
+>> dir(rjfrank)
+>> rjfrank.catan_negotiations()
+>> rjfrank.movie_quotes()
+>> rjfrank.retire()
+>> rjfrank.ode()
+>> del rjfrank
 ```
 
 ---
