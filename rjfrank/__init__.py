@@ -74,10 +74,10 @@ class RandyFrankData:
     terrain_engine: Optional[str] = None
     mohawk_conversation_magnet: Optional[str] = None
     death_is_a_four_letter_word: Optional[str] = None
-    apple_ii_copyright_protection: Optional[str] = None
+    apple_ii_copy_protection: Optional[str] = None
     Marys_treats: Optional[str] = None
     its_been_500_years: Optional[str] = None
-    rectite: Optional[str] = None
+    retire: Optional[str] = None
 
     def catan_negotiations(self) -> str:
         return "You may *think* you’re getting those sheep, but you’re not."
