@@ -77,6 +77,11 @@ class RandyFrankData:
     apple_ii_copyright_protection: Optional[str] = None
     Marys_treats: Optional[str] = None
     rectite: Optional[str] = None
+    five_minute_task: Optional[str] = None
+    rc_cars: Optional[str] = None
+    deliminator: Optional[str] = None
+    temp: Optional[str] = None
+    helvetica_bold: Optional[str] = None
 
     def catan_negotiations(self) -> str:
         return "You may *think* you’re getting those sheep, but you’re not."
@@ -141,8 +146,13 @@ class RandyFrankModule(ModuleType):
         print("Randy has exited the runtime. Legacy remains in memory.")
 
     def __dir__(self) -> list[str]:
-        dynamic_attrs = list(vars(self._randy).keys())
-        return sorted(dynamic_attrs)
+        attrs = list(vars(self._randy).keys())
+        methods = [
+            name
+            for name in dir(self._randy)
+            if callable(getattr(self._randy, name)) and not name.startswith("_")
+        ]
+        return sorted(set(attrs + methods))
 
 
 sys.modules[__name__] = RandyFrankModule(__name__)
